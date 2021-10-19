@@ -4,7 +4,7 @@ import logo from '../../assets/img/user1.jpg';
 
 const Login = () => {
   return (
-    <View>
+    <View style={styles.page}>
       <Image source={logo} width={50} height={50} />
       <View>
         <Text>NPM</Text>
@@ -20,6 +20,7 @@ const Login = () => {
 export default Login;
 
 const styles = StyleSheet.create({
+  page: {flex: 1, backgroundColor: '#fff'},
   input: {
     borderWidth: 1,
     borderColor: '#ededed',

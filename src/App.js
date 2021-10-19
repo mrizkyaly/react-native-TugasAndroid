@@ -6,8 +6,8 @@ const App = () => {
   return (
     <View>
       <ScrollView>
-        <Login />
-        {/* <UserProfile /> */}
+        {/* <Login /> */}
+        <UserProfile />
       </ScrollView>
     </View>
   );
