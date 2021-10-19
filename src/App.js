@@ -1,15 +1,13 @@
+import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {ScrollView, View} from 'react-native';
-import {Login, UserProfile} from './pages';
+import {UserProfile, Login} from './pages';
 
 const App = () => {
   return (
-    <View>
-      <ScrollView>
-        {/* <Login /> */}
-        <UserProfile />
-      </ScrollView>
-    </View>
+    <NavigationContainer>
+      <Login />
+      {/* <UserProfile /> */}
+    </NavigationContainer>
   );
 };
 

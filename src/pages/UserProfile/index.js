@@ -1,7 +1,7 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View, Button} from 'react-native';
-import userImg from '../../assets/img/user1.jpg';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import Verified from '../../assets/icon/icon_female.svg';
+import userImg from '../../assets/img/user1.jpg';
 
 const UserProfile = () => {
   return (
@@ -24,13 +24,11 @@ const styles = StyleSheet.create({
   page: {
     backgroundColor: 'white',
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   profile: {
     alignItems: 'center',
-    flex: 1,
     justifyContent: 'center',
+    flex: 1,
   },
   avatarWrapper: {
     width: 140,
