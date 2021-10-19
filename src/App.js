@@ -1,12 +1,11 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {UserProfile, Login} from './pages';
+import Router from './router';
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Login />
-      {/* <UserProfile /> */}
+      <Router />
     </NavigationContainer>
   );
 };

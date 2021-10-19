@@ -6,11 +6,10 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Link,
 } from 'react-native';
 import ILLogo from '../../assets/img/pablita-success.png';
 
-const Login = () => {
+const Login = ({navigation}) => {
   return (
     <View style={styles.page}>
       <Text style={styles.title}>Welcome Back, Guys</Text>
@@ -31,7 +30,9 @@ const Login = () => {
         />
       </View>
       <Text style={styles.linkForget}>Forget Password ?</Text>
-      <TouchableOpacity style={styles.btnLogin}>
+      <TouchableOpacity
+        style={styles.btnLogin}
+        onPress={() => navigation.navigate('UserProfile')}>
         <Text style={styles.btnLoginText}>Sign In</Text>
       </TouchableOpacity>
     </View>
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#5A38FD',
     paddingVertical: 12,
     borderRadius: 5,
-    marginTop: 16,
+    marginTop: 18,
   },
   btnLoginText: {
     fontSize: 16,
