@@ -1,40 +1,22 @@
 import React from 'react';
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import ILLogo from '../../assets/img/pablita-success.png';
+import {Button, Input} from '../../components/atoms';
 
 const Login = ({navigation}) => {
   return (
     <View style={styles.page}>
       <Text style={styles.title}>Welcome Back, Guys</Text>
       <Text style={styles.subTitle}>Sign In to continue</Text>
-      <View style={styles.imageSection}>
+      <View>
         <Image source={ILLogo} style={styles.logo} />
       </View>
       <View style={styles.fillAuth}>
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          placeholderTextColor={'#000'}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          placeholderTextColor={'#000'}
-        />
+        <Input placeholder="Email" />
+        <Input placeholder="Password" />
       </View>
       <Text style={styles.linkForget}>Forget Password ?</Text>
-      <TouchableOpacity
-        style={styles.btnLogin}
-        onPress={() => navigation.navigate('UserProfile')}>
-        <Text style={styles.btnLoginText}>Sign In</Text>
-      </TouchableOpacity>
+      <Button title="Login" />
     </View>
   );
 };
@@ -69,31 +51,11 @@ const styles = StyleSheet.create({
     marginTop: 28,
     marginBottom: 16,
   },
-  input: {
-    borderWidth: 1,
-    borderColor: '#5A38FD',
-    borderRadius: 5,
-    paddingVertical: 12,
-    paddingHorizontal: 18,
-    marginBottom: 16,
-    color: '#000',
-  },
+
   linkForget: {
     textAlign: 'right',
     fontSize: 12,
     fontWeight: '500',
     color: '#B0B0B0',
-  },
-  btnLogin: {
-    backgroundColor: '#5A38FD',
-    paddingVertical: 12,
-    borderRadius: 5,
-    marginTop: 18,
-  },
-  btnLoginText: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: 'white',
-    textAlign: 'center',
   },
 });
