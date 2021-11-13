@@ -3,12 +3,15 @@ import React, {useState} from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import ImgRegister from '../../assets/img/img-register.png';
 import {Button, Input, Link} from '../../components/atoms';
+import {useToast} from 'react-native-toast-notifications';
 
 const Register = ({navigation}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [npm, setNpm] = useState('');
   const [password, setPassword] = useState('');
+
+  const toast = useToast();
 
   const onPress = () => {
     const data = {
@@ -18,13 +21,30 @@ const Register = ({navigation}) => {
       password,
     };
 
-    axios.post('http://10.0.2.2:3000/users', data).then(res => {
-      setName('');
-      setNpm('');
-      setEmail('');
-      setPassword('');
-    });
-    // navigation.navigate('UserProfile');
+    if (
+      data.name === '' ||
+      data.email === '' ||
+      data.npm === '' ||
+      data.password === ''
+    ) {
+      toast.show('Pastikan isi form dengan lengkap !! ', {
+        type: 'danger',
+        placement: 'top',
+      });
+    } else {
+      axios.post('http://10.0.2.2:3000/users', data).then(res => {
+        setName('');
+        setNpm('');
+        setEmail('');
+        setPassword('');
+      });
+
+      toast.show('Register Berhasil !! ', {
+        type: 'success',
+        placement: 'top',
+      });
+      navigation.navigate('UserProfile');
+    }
   };
 
   return (
