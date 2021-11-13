@@ -1,23 +1,30 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import ILLogo from '../../assets/img/pablita-success.png';
+import ImgRegister from '../../assets/img/img-register.png';
 import {Button, Input, Link} from '../../components/atoms';
 
 const Register = ({navigation}) => {
+  const onPress = () => {
+    navigation.navigate('UserProfile');
+  };
+
   return (
     <View style={styles.page}>
-      <Text style={styles.title}>Welcome Back, Guys</Text>
-      <Text style={styles.subTitle}>Sign In to continue</Text>
+      <Text style={styles.title}>Create Your Account</Text>
+      <Text style={styles.subTitle}>Sign Up and Get Started</Text>
       <View>
-        <Image source={ILLogo} style={styles.logo} />
+        <Image source={ImgRegister} style={styles.logo} />
       </View>
       <View style={styles.fillAuth}>
         <Input placeholder="Nama Lengkap" />
         <Input placeholder="Email" />
         <Input placeholder="Password" />
       </View>
-      <Link title="Already Have an Account ?" />
-      <Button title="Register" />
+      <Link
+        title="Already Have an Account ?"
+        onPress={() => navigation.navigate('Login')}
+      />
+      <Button title="Register Now" onPress={onPress} />
     </View>
   );
 };

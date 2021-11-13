@@ -4,6 +4,9 @@ import ILLogo from '../../assets/img/pablita-success.png';
 import {Button, Input, Link} from '../../components/atoms';
 
 const Login = ({navigation}) => {
+  const onPress = () => {
+    navigation.navigate('UserProfile');
+  };
   return (
     <View style={styles.page}>
       <Text style={styles.title}>Welcome Back, Guys</Text>
@@ -15,8 +18,11 @@ const Login = ({navigation}) => {
         <Input placeholder="Email" />
         <Input placeholder="Password" />
       </View>
-      <Link title="Forget my password ?" />
-      <Button title="Login" />
+      <Link
+        title="Forget my password ?"
+        onPress={() => navigation.navigate('Register')}
+      />
+      <Button title="Login" onPress={onPress} />
     </View>
   );
 };
