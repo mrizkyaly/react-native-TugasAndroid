@@ -13,8 +13,8 @@ const UserProfile = () => {
 
   const getData = () => {
     axios.get('http://10.0.2.2:3000/users').then(res => {
-      console.log('data', res.data);
-      setUsers(res.data);
+      console.log('data', res);
+      setUsers(res.data[0]);
     });
   };
 
