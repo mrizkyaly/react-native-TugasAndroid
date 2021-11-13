@@ -1,11 +1,30 @@
-import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import axios from 'axios';
+import React, {useState} from 'react';
+import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import ImgRegister from '../../assets/img/img-register.png';
 import {Button, Input, Link} from '../../components/atoms';
 
 const Register = ({navigation}) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [npm, setNpm] = useState('');
+  const [password, setPassword] = useState('');
+
   const onPress = () => {
-    navigation.navigate('UserProfile');
+    const data = {
+      name,
+      email,
+      npm,
+      password,
+    };
+
+    axios.post('http://10.0.2.2:3000/users', data).then(res => {
+      setName('');
+      setNpm('');
+      setEmail('');
+      setPassword('');
+    });
+    // navigation.navigate('UserProfile');
   };
 
   return (
@@ -15,16 +34,35 @@ const Register = ({navigation}) => {
       <View>
         <Image source={ImgRegister} style={styles.logo} />
       </View>
-      <View style={styles.fillAuth}>
-        <Input placeholder="Nama Lengkap" />
-        <Input placeholder="Email" />
-        <Input placeholder="Password" />
-      </View>
-      <Link
-        title="Already Have an Account ?"
-        onPress={() => navigation.navigate('Login')}
-      />
-      <Button title="Register Now" onPress={onPress} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.fillAuth}>
+          <Input
+            placeholder="Nama Lengkap"
+            value={name}
+            onChangeText={value => setName(value)}
+          />
+          <Input
+            placeholder="NPM"
+            value={npm}
+            onChangeText={value => setNpm(value)}
+          />
+          <Input
+            placeholder="Email"
+            value={email}
+            onChangeText={value => setEmail(value)}
+          />
+          <Input
+            placeholder="Password"
+            value={password}
+            onChangeText={value => setPassword(value)}
+          />
+        </View>
+        <Link
+          title="Already Have an Account ?"
+          onPress={() => navigation.navigate('Login')}
+        />
+        <Button title="Register Now" onPress={onPress} />
+      </ScrollView>
     </View>
   );
 };
