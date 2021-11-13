@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import ILLogo from '../../assets/img/pablita-success.png';
-import {Button, Input} from '../../components/atoms';
+import {Button, Input, Link} from '../../components/atoms';
 
 const Login = ({navigation}) => {
   return (
@@ -15,7 +15,7 @@ const Login = ({navigation}) => {
         <Input placeholder="Email" />
         <Input placeholder="Password" />
       </View>
-      <Text style={styles.linkForget}>Forget Password ?</Text>
+      <Link title="Forget my password ?" />
       <Button title="Login" />
     </View>
   );
@@ -50,12 +50,5 @@ const styles = StyleSheet.create({
   fillAuth: {
     marginTop: 28,
     marginBottom: 16,
-  },
-
-  linkForget: {
-    textAlign: 'right',
-    fontSize: 12,
-    fontWeight: '500',
-    color: '#B0B0B0',
   },
 });
