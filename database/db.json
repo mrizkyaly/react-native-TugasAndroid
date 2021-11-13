@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Muhammad Rizky Aly",
+      "npm": "06.2018.1.07051",
+      "email": "rizkyaly20.ra@gmail.com",
+      "password": "rahasia"
+    }
+  ]
+}

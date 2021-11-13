@@ -1,9 +1,23 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect, useState} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import Verified from '../../assets/icon/icon_female.svg';
 import userImg from '../../assets/img/user1.jpg';
 
 const UserProfile = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
+    axios.get('http://10.0.2.2:3000/users').then(res => {
+      console.log('data', res.data);
+      setUsers(res.data);
+    });
+  };
+
   return (
     <View style={styles.page}>
       <View style={styles.profile}>
@@ -11,8 +25,8 @@ const UserProfile = () => {
           <Image source={userImg} style={styles.avatar} />
           <Verified style={styles.verified} />
         </View>
-        <Text style={styles.name}>Muhammad Rizky Aly</Text>
-        <Text style={styles.npm}>06.2018.1.07051</Text>
+        <Text style={styles.name}>{users.name}</Text>
+        <Text style={styles.npm}>{users.npm}</Text>
       </View>
     </View>
   );
