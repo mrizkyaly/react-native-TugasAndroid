@@ -66,7 +66,7 @@ const Login = ({navigation}) => {
         />
       </View>
       <Link
-        title="Forget my password ?"
+        title="Have an account ?"
         onPress={() => navigation.navigate('Register')}
       />
       <Button title="Login" onPress={onPress} />
