@@ -8,11 +8,18 @@
       "password": "rahasia"
     },
     {
-      "name": "",
-      "email": "",
-      "npm": "",
-      "password": "",
+      "name": "mrizkyaly",
+      "email": "mrizkyaly@gmail.com",
+      "npm": "06.2018.1.07040",
+      "password": "123456",
       "id": 2
+    },
+    {
+      "name": "panji",
+      "email": "panji@gmail.com",
+      "npm": "06.2018.1.07062",
+      "password": "123",
+      "id": 3
     }
   ]
 }
